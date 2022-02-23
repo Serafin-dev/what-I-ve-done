@@ -1,0 +1,20 @@
+{% extends "Tables/layout.html" %}
+<!-- Sidenav Block -->
+{% block sidenav_buttons %}
+    <!-- Create sidenav buttons -->
+    {% for c_url, icon_url in c_data.items %}
+                <a href={{ c_url }} class="categorie">
+                    <img src={{ icon_url }}/>
+                </a>
+    {% endfor %}
+{% endblock %}
+
+<!-- Body Block -->
+{% block body %}
+    <div id=category_name> 
+        <h2 style="color:black;">  {{ category }} </h1>
+    </div>
+    <h4> Tu actividad </h4>
+    {% block monthly %}
+    {% endblock %}
+{% endblock %}

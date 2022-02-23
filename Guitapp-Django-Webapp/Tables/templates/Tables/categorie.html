@@ -1,0 +1,40 @@
+{% extends "Tables/layout.html" %}
+<!-- Sidenav Block -->
+{% block sidenav_buttons %}
+    <!-- Create Outcome sidenav buttons -->
+    {% for c_url, icon_url in icon_urls.items %}
+                <a href={{ c_url }} class="categorie">
+                    <img src={{ icon_url }}/>
+                </a>
+    {% endfor %}
+{% endblock %}
+
+<!-- Body Block -->
+{% block body %}
+   <div id=category_name> 
+      <h2 style="color:black;">  {{ categorie }} </h1>
+   </div>
+   <h4> Tu actividad </h4>
+   <div id="actividad">
+   {% if c_outcomes %}
+      {% for register in c_outcomes %}
+         <div class="outcomes">
+            <div id="concept-value">
+               <div class="description" style="font-size: 1rem;">
+                  {{ register.description }}
+               </div>
+               <div class="value" style="color: rgb(207, 48, 74); font-size: 1.25rem; direction:ltr">
+                  $ {{ register.outcome }}
+               </div>
+            </div>
+            <div id="date" style="font-size: 0.5rem;">
+               {{ register.creation_date }}
+            </div>
+         </div>
+      {% endfor %}
+   {% else %}
+         <h3> No tienes registros en esta categoría </h3>
+   {% endif %}
+
+   </div>
+{% endblock %}

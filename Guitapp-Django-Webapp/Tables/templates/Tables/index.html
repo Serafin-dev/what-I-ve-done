@@ -1,0 +1,38 @@
+{% extends "Tables/layout.html" %}
+{% load static %}
+{% block body %}
+   <div id=category_name> 
+      <h2 style="color:black;">  Mi perfil  </h1>
+   </div>
+   
+   <!-- Balance -->
+   <h4> Tu balance </h4>
+   <div id="balance">
+      <h3>{{ balance }}</h3>
+   </div>
+
+   <!-- Tu actividad -->
+   <h4> Tu actividad </h4>
+   <div id="actividad">
+   {% if registers %}
+      {% for register in registers %}
+         <div class="outcomes">
+            <div id="concept-value">
+               <div class="description" style="font-size: 1rem;">
+                  {{ register.description }}
+               </div>
+            {% if register.outcome %}
+               <div class="value" style="color: rgb(200, 93, 111); font-size: 1.25rem; direction:ltr">$ {{ register.outcome }}</div>
+            {% else %}
+            <div class="value" style="color: rgb(80, 214, 109); font-size: 1.25rem; direction:ltr">$ {{ register.income }}</div>
+            {% endif %}
+         </div>
+         <div id="date" style="font-size: 0.5rem;">{{ register.creation_date }}
+         </div>
+         </div>
+      {% endfor %}
+   {% else %}
+         <h3> No tienes registros </h3>
+   {% endif %}
+   </div>
+{% endblock %}

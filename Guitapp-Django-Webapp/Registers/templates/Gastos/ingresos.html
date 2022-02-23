@@ -1,0 +1,9 @@
+{% extends "Gastos/index.html" %}
+{% load static %}
+{% block tab %}
+    <form style="background-color: aquamarine;" action="{% url 'gastos:index' %}" method="post">
+        {% csrf_token %}
+        {{ incomeForm }}
+    <input type="submit" value="INGRESAR">
+    </form>
+{% endblock %}

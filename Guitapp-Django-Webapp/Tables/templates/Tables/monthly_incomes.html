@@ -1,0 +1,37 @@
+{% extends "Tables/incomes.html" %}
+{% block monthly %}
+<!-- Actividad-->
+    <div id="actividad">
+        <div id="month-nav">
+            <a href="/tables/incomes/{{ category.id }}/{{ year }}/{{ abb_prev_month }}/"><img src="https://img.icons8.com/external-flat-icons-inmotus-design/67/000000/external-arrow-basic-ui-navigation-elements-flat-icons-inmotus-design-4.png"/></a>
+            <p style="text-align:center; font-size:1rem;">{{ month|date:"F Y" }}</p>
+            <a href="/tables/incomes/{{ category.id }}/{{ year }}/{{ abb_next_month }}/"><img src="https://img.icons8.com/external-flat-icons-inmotus-design/67/000000/external-arrow-basic-ui-navigation-elements-flat-icons-inmotus-design-8.png"/></a>
+        </div>
+    {% if object_list %}
+        {% for register in object_list %}
+        <!-- Outcomes-->
+        <div class="outcomes">
+            <div id="concept-value">
+                <div class="description" style="font-size: 1rem;">
+                    {{ register.description }}
+                </div>
+                <div class="value" style="color: rgb(207, 48, 74); font-size: 1.25rem; direction:ltr">
+                $ {{ register.income }}
+                </div>
+            </div>
+            <div id="date" style="font-size: 0.5rem;">
+                {{ register.creation_date }}
+            </div>
+        </div>
+        <!-- end Outcomes-->
+        {% endfor %}
+    {% else %}
+        <h3> No tienes registros en esta categoría </h3>
+    {% endif %}
+        <div class="outcomes" style="display:flex; justify-content:space-between;" id="month_total">
+            <p> Total: </p>
+            <p> ${{ month_total }} </p>
+        </div>
+    </div>
+<!-- end Actividad-->    
+{% endblock %}

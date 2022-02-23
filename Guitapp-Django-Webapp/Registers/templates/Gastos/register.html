@@ -1,0 +1,18 @@
+{% extends "Gastos/layout.html" %}
+{% block body %}
+{% load static %}
+    <div class="login_box">
+        {% if message %}
+        <div>{{ message }}</div>
+        {% endif %}
+        <img style="max-width: 8rem; " src="{% static 'Gastos/img/pngaaa.com-5628639.png' %}"/>
+        <h2 style="text-align: center; font-size: 3rem;">Guitapp</h2>
+        <form  action="{% url 'gastos:register' %}" method="post">
+            <!--token de seguridad -->
+            {% csrf_token%}
+            {{ form }}
+            <input type="submit" value="Crear">
+        </form>
+        <div><a href="{% url 'gastos:login' %}">Ya tengo una cuenta</a></div>
+    </div>
+{% endblock %}

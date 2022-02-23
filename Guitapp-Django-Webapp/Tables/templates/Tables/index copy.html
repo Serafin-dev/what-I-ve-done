@@ -1,0 +1,37 @@
+{% extends "Tables/layout.html" %}
+{% block body %}
+    <!--Months-->
+    <div>
+            <div class="months">
+                <div class="arrows"><a href="#">Anterior</a></div>
+                <div><h1>{{ actualMonthStart }}</h1></div>
+                <div class="arrows"><a href="#">Siguiente</a></div>
+            </div>
+    <!--Weeks-->    
+            <div class="weeks">
+                {% for week in weeks %}
+                <div class="week-button">
+                    <a href="#">{{week}}</a>
+                </div>
+                {% endfor %}
+            </div>
+            
+    <!--Outcomes-->
+        {% for outcome in outcomes %}    
+            <div class="outcomes">
+                <div id="concept-value">
+                    <div class="description" style="font-size: 3rem;">
+                        {{ outcome.description }}
+                    </div>
+                    <div class="value" style="color: rgb(207, 48, 74); font-size: 3rem; direction:ltr">{{ outcome.outcome }}</div>
+                </div>
+                <div id="date" style="font-size: 2rem;">{{ outcome.creation_date }}
+                </div>
+           </div>
+        {% endfor %}
+    </div>
+    <script>
+        var outcomeList = "{{ outcomes }}";
+        console.log(outcomeList);
+    </script>
+{% endblock %}

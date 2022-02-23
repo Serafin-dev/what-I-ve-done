@@ -1,0 +1,27 @@
+{% extends "Gastos/layout.html" %}
+{% block body %}
+{% load static %}
+    <div class="body-like">
+        <div class="main-container">
+            <img style="max-width: 10em; " src="{% static 'Gastos/img/pngaaa.com-5628639.png' %}"/>
+            <h2 style="text-align: center;">Guitapp</h2>
+            <!--Nav tabs -->
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" id="ingreso" data-toggle="tab" href="{% url 'gastos:incomes' %}">Ingreso</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="egreso" data-toggle="tab" href="{% url 'gastos:outcomes' %}">Egreso</a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <!--Ingresos y egresos Tab-->
+                {% block tab %}
+                {% endblock %}
+            </div>
+            <a href="{% url 'tables:index' %}"> Ver registros </a>
+        </div>
+    </div>
+{% endblock %}
