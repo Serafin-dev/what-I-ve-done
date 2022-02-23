@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    {% if registers %}
+    <table class="table">
+            <thead>
+                <tr>
+                    {% for col in cols%}
+                    <th class="text-start">{{ col }}</th>
+                    {% endfor %}
+            </thead>
+            <tbody>
+                    {% for register in registers %}
+                    <tr>
+                        <td class="text-start">{{ register["sym"] }}</td>
+                        <td class="text-end">{{ register["shares"] }}</td>
+                        <td class="text-end">{{ register["price"] }}</td>
+                        <td class="text-end">{{ register["transacted"] }}</td>
+                    </tr>
+                    {% endfor %}
+            </tbody>
+    </table>
+    {% endif %}
+{% endblock %}
