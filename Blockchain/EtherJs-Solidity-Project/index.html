@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href ="style.css">
+        <title>NERDS</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
+    </head>
+    <nav id="hero">
+        <div class="logo"><img id="imglogo" src="/img/logo-nerdish.svg" alt=”Nerdish_Logo”>
+        </div>
+          <ul class="navbar_menu">
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Discord</a></li>
+              <li><a href="#">Opensea</a></li>
+          </ul>
+    </nav>
+    <div id="navigate" class="sidebar">
+        <a class="navigate-button" href="#hero">The project</a>
+        <a class="navigate-button" href="#mint">Mint</a>
+        <a class="navigate-button" href="#roadmap">Roadmap</a>
+        <a class="navigate-button" href="#about">About</a>
+    </div>
+    <body>
+    
+    <div id="mint" class="two"> 
+        <div id="main-container">
+            <div class = mint-module>
+                <form>
+                    <h1 id ="contractname" style="color:white;" ></h1>
+                    <h1 id ="tokename"></h1>
+                    <input id="amount" placeholder="Cantidad de NERDS" type="number">
+                    <input type="submit" value="Mint NERD">
+                </form>
+                <button id="connectWallet">Connect Wallet</button>
+            </div>
+        <button id="pullPayment">PULL PAYMENT</button>
+        </div>
+    </div>
+            
+        </div>
+        
+		<script type="module" src="./dist/bundle.js"></script>
+    </body>
+</html>
