@@ -32,13 +32,13 @@ def index(request):
             # Form Data
             d = form.cleaned_data
             
-            # Get existing Categorie object
-            c = Categories.objects.get_or_create(title=d["categorie"])
+            # Get existing category object
+            c = Categories.objects.get_or_create(title=d["category"])
             
             # Create new Outcome
             outcome = Outcome( user = request.user,
                                creation_date = d['creation_date'], 
-                               categorie = c[0], 
+                               category = c[0], 
                                description = d['description'], 
                                outcome = d['outcome'] * (- 1), 
                                month = month )
@@ -64,13 +64,13 @@ def index(request):
             
             # form cleaned data
             d = form.cleaned_data          
-            # Categorie object
-            c = Income_categorie.objects.get_or_create(title=d["categorie"])
+            # category object
+            c = Income_category.objects.get_or_create(title=d["category"])
             
             # Create new Income 
             income = Income( user = request.user,
                              creation_date = d['creation_date'], 
-                             categorie = c[0], 
+                             category = c[0], 
                              description = d['description'], 
                              income = d['income'],  
                              month = month )
