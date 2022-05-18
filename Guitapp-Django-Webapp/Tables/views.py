@@ -37,27 +37,27 @@ def index(request):
         #deberia entregarle un array con los 12 meses llamado "meses"
     
     })
-# categorie
+# category
 @login_required(login_url='gastos:login')
-def categorie(request, categorie_id):
+def category(request, category_id):
     user_id = request.user.id
-    categorie = Categories.objects.get(pk=categorie_id)
+    category = Categories.objects.get(pk=category_id)
 
-    c_outcomes = (categorie.outcomes.filter(user_id=user_id))
+    c_outcomes = (category.outcomes.filter(user_id=user_id))
 
-    return render(request, "Tables/categorie.html", {
-        "categorie" : categorie, 
+    return render(request, "Tables/category.html", {
+        "category" : category, 
         "c_outcomes": c_outcomes,
     })
 # Incomes
 @login_required(login_url='gastos:login')
-def incomes(request, categorie_id):
+def incomes(request, category_id):
     user_id = request.user.id
-    categorie = Income_categorie.objects.get(pk=categorie_id)
+    category = Income_category.objects.get(pk=category_id)
 
-    c_incomes = categorie.incomes.filter(user_id=user_id)
+    c_incomes = category.incomes.filter(user_id=user_id)
     return render(request, "Tables/incomes.html", {
-        "categorie" : categorie, 
+        "category" : category, 
         "c_incomes": c_incomes,
     })
 
@@ -84,7 +84,7 @@ class MonthlyIncomes(MonthArchiveView):
             # override queryset context variable 
             # (queryset must be provided as a parameter when using MonthArchiveView) 
             def get_queryset(self):
-                category = Income_categorie.objects.get(pk=self.kwargs['categorie_id'])
+                category = Income_category.objects.get(pk=self.kwargs['category_id'])
                 queryset = category.incomes.filter(user=self.request.user) 
                 return queryset
             
@@ -92,7 +92,7 @@ class MonthlyIncomes(MonthArchiveView):
             def get_context_data(self, **kwargs):
                 context = super().get_context_data(**kwargs)
                 user_id = self.request.user.id
-                context['category'] = Income_categorie.objects.get(pk=self.kwargs['categorie_id'])
+                context['category'] = Income_category.objects.get(pk=self.kwargs['category_id'])
                 context['c_incomes'] = context['category'].incomes.filter(user_id=user_id)
                 context['year'] = context['month'].strftime("%Y")
                 context['abb_prev_month'] = context['previous_month'].strftime("%B")[:3]
@@ -124,7 +124,7 @@ class MonthlyOutcomes(MonthArchiveView):
             allow_empty = True
             
             def get_queryset(self):
-                category = Categories.objects.get(pk=self.kwargs['categorie_id'])
+                category = Categories.objects.get(pk=self.kwargs['category_id'])
                 queryset = category.outcomes.filter(user=self.request.user) 
                 return queryset
     
