@@ -29,7 +29,6 @@ contract Mescrow is Ownable, PaymentSplitter{
     /** 
     JS virtual machine: 1000000000000000000,["0x5B38Da6a701c568545dCfcB03FcB875f56beddC4","0xCA35b7d915458EF540aDe6068dFe2F44E8fa733c","0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB"],[300,400,300]
     Ethereum Ropsten testnet:
-    -Deployment parameters: 100000000000000,["0x1A2e48b8daD8A9f2e6A3d41cEBab1214726dbD93","0x75FCE093358474B56cfDeBA7FF798B6Bc014fCda","0x7a00eddAC1100C429213E508A24951DDde27A930"],[300,400,300]
     -Contract ADDRESS: "0x78FB58C86460FFcF409FFFB2ce1B52a0f59470a8"
     */
     constructor(uint256 price, address[] memory payees_, uint256[] memory shares_) PaymentSplitter(payees_, shares_) payable {
