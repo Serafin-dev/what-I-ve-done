@@ -8,4 +8,4 @@ LA DIRECCIÓN DEL CONTRATO EN TESTNET ROPSTEN: “0x1691c7157A8aF44D2C25a416f973
 
 Estoy construyendo la API con Node, express y ether-js para comunicarnos con este contrato .
 
-Este contrato es 100% funcional pero todavía está en etapa de desarrollo y falta antes de poner a producción. 
+Este contrato es 100% funcional pero todavía está en etapa de desarrollo y falta para poner a producción. 
